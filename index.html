@@ -29,13 +29,33 @@
                 font-family: Arial, Helvetica, sans-serif;
                 text-align: center;
                 font-size: 20px;
-                margin: 2% 28% 2% 28%;
+                margin: 2% 20% 2% 20%;
                 line-height: 40px;
             }
 
-            #playPause{
-                width: 50px;
-                height: 50px;
+            #pButton{
+                height:150px;
+                width: 150px;
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                background-position: center;
+                border: none;
+            }
+            
+            #audioFormat{
+                width: 300px;
+                height: auto;
+                margin: auto auto 20px auto;
+                text-align:center;
+                background-color:transparent;
+            }
+
+            .play{
+                background: url('img/play.png') ;
+            }
+
+            .pause{
+                background: url('img/pause.png') ;
             }
             
 
@@ -45,33 +65,29 @@
 
     <body>
         <h1>Simple Poro</h1>
-        <script src = "JavaScript/index.js"></script> </script>
+        <script src = "JavaScript/index.js"></script> 
 
-        <p>Increase your productivity with a pomodoro timer and your choice of ambient noise.</p>
+        <p>Increase your productivity with a pomodoro timer and some rainy mood.</p>
 
-        
+        <div id="audioFormat">
+            <button id = "pButton" class = "play" onclick = "Play()" ></button>
+        </div>
 
-
-
-
-
-
-        <button onclick = "Play()" id = "playPause"></button>
-        
         <script>
             var audio = new Audio("Audio/rainSound.mp3");
             audio.pause();
-            var button = document.getElementById("playbutton");
             function Play(){
                 
                 if (audio.paused) {
                     audio.play();
-                    button.style.bacgkround = "hello";
+                    pButton.className = "";
+                    pButton.className = "pause";
                 }
 
                 else {
-                    audio.pause()
-                    button.style.background = ("img/pause.png no-repeat");
+                    audio.pause();
+                    pButton.className = "";
+                    pButton.className = "play";
                 }
             }
         </script>
